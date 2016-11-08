@@ -8,17 +8,24 @@ send_user "\n"
 stty echo
 set pass $expect_out(1,string)
 
-spawn ssh root@192.168.1.1
+
+while {[gets $ipki ip] != -1} {
+
+spawn ssh root@$ip
 
 expect "password: "
 
 expect "# "
 
-send "ps w\r"
+send "uname -a\r"
 
 expect "# "
 
 send "exit\r"
 
+expect eof
 
-interact
+}
+
+close $ipki
+
