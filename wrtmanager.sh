@@ -11,6 +11,8 @@ while {[gets $ipki ip] != -1} {
 
 spawn ssh root@$ip
 
+spawn ssh root@192.168.1.1
+
 expect "password: "
 
 expect "# "
