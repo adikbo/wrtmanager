@@ -1,8 +1,6 @@
 #!/usr/bin/expect -f
 
 
-stty --echo
-send_user -- "Please enter the password for the root: "
 expect_user -re "(.*)\n"
 send_user "\n"
 stty echo

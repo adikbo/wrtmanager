@@ -8,10 +8,9 @@ set PSK [lindex $argv 4]
 
 
 spawn ssh $USER@$IPaddress
-expect {
-"(yes/no)" {send "yes\r"}
-"password:" {send "$PASSWORD\r"}
-}
+expect "password:" 
+
+send "$PASSWORD\r"
 
 expect ":~#"
 
