@@ -1,13 +1,13 @@
 #!/usr/bin/expect -f
 set timeout 50
 set IPaddress [lindex $argv 0]
-set USER [lindex $argv 1]
-set PASSWORD [lindex $argv 2]
-set SSID [lindex $argv 3]
-set PSK [lindex $argv 4]
+#set USER [lindex $argv 1]
+set PASSWORD [lindex $argv 1]
+set SSID [lindex $argv 2]
+set PSK [lindex $argv 3]
 
 
-spawn ssh $USER@$IPaddress
+spawn ssh root@$IPaddress
 expect "password:" 
 
 send "$PASSWORD\r"
