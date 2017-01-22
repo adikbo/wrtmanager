@@ -1,15 +1,16 @@
-wrtmanager
+WRTManager
 
-OpenWRT Manager based on expect.
+OpenWRT Manager based on expect and dialog.
 
-Ten skrypt ma służyć do masowej zmiany SSID oraz haseł PSK w sieci opartej o urządzenia z systemem OpenWRT.
+Dialog based script for automated change of configuration on UCI based devices.
 
-Skrypt jest pisany z wykorzystaniem narzędzia expect które jest nakładką na język skryptowy tcl.
+Current deployment allows 3 operations:
+1. Change SSID
+2. Change PSK for SSID
+3. Change root password
 
-Lista urządzeń w postaci pliku txt z adresami, lokalizacją, hasłami, loginami oraz nazwą oddzielona przecinkami.
+Each of functions is in diferent script file and written in expect/tcl.
+Main function is written in dialog.
 
-Całość składa się ze skryptu wrtmanager.sh - skrypt prosi o podanie nazwy pliku z listą urządzeń, oraz wybranie pożądanej akcji - Zmiana SSID lub dodanie reguły w iptables.
 
-Skrypt wrtmanager.sh wywołuje w zależności od wybranego zadania odpowiedni skrypt zmieniający wybrany parametr. Dla zmiany SSID wywłowyany jest skrypt wifi.sh
 
-Dodanie modułu polega na dopisaniu odpowiedniego skryptu wywoływanego oraz dodaniu pozycji w menu.
