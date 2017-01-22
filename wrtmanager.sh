@@ -10,6 +10,13 @@ curr=$(dialog        --title "Enter current root Password" \
 		     8 40 2>&1 > /dev/tty)
 clear
 
+#lista urządzeń
+temp="/tmp/lista.tmp"
+lista="lista.txt"
+dialog			--editbox "$lista" 40 125 2> "$temp"
+rm $lista
+mv $temp $lista
+
 # Główne menu programu
 HEIGHT=15
 WIDTH=40
