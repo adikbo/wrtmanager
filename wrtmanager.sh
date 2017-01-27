@@ -2,6 +2,7 @@
 
 # zmienne
 ipki='lista.txt'
+log='script.log'
 
 #hasło do urządzeń
 curr=$(dialog        --title "Enter current root Password" \
@@ -16,7 +17,10 @@ lista="lista.txt"
 dialog			--editbox "$lista" 40 125 2> "$temp"
 rm $lista
 mv $temp $lista
+rm $log
+
 clear
+count_dev=$(cat $ipki | wc -l)
 
 # Główne menu programu
 
@@ -73,5 +77,13 @@ case $CHOICE in
             done < $ipki
 	    ;;
 esac
+count_suc=$(cat $log | wc -l)
+clear
+
+dialog 					--title "Summary" \
+					--backtitle "WRTManager" \
+					--msgbox "Successfully delivered commands to $count_suc of $count_dev devices" \
+					8 40 2>&1
 
 clear
+rm $log

@@ -1,5 +1,6 @@
 #!/usr/bin/expect -f
 
+log_file script.log
 log_user 0
 set timeout 50
 
@@ -31,7 +32,7 @@ expect "#"
 
 send "exit\r"
 
-log_user 1
+send_log "$IPaddress done successfully" 
 
 expect eof
 
